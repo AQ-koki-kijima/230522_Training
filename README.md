@@ -55,7 +55,7 @@ http://localhost
 **users テーブル**
 | No | カラム名     | データ型         | Not NULL | デフォルト値 | 備考           |
 |---|-----------|--------------|---------|----------|--------------|
-| 1 | id        | INT          | YES     | None     | 主キー、自動増分 |
+| 1 | id        | BIGINT       | YES     | None     | 主キー、自動増分 |
 | 2 | name      | VARCHAR(100) | YES     | None     |              |
 | 3 | email     | VARCHAR(100) | YES     | None     |              |
 | 4 | password  | VARCHAR(100) | YES     | None     | 暗号化されたパスワード |
@@ -65,7 +65,7 @@ http://localhost
 **facilities テーブル**
 | No | カラム名     | データ型         | Not NULL | デフォルト値 | 備考           |
 |---|-----------|--------------|---------|----------|--------------|
-| 1 | id        | INT          | YES     | None     | 主キー、自動増分 |
+| 1 | id        | BIGINT       | YES     | None     | 主キー、自動増分 |
 | 2 | name      | VARCHAR(100) | YES     | None     |              |
 | 3 | description | TEXT       | NO      | NULL     |              |
 | 4 | location  | VARCHAR(200) | YES     | None     |              |
@@ -76,18 +76,19 @@ http://localhost
 **services テーブル**
 | No | カラム名     | データ型         | Not NULL | デフォルト値 | 備考           |
 |---|-----------|--------------|---------|----------|--------------|
-| 1 | id        | INT          | YES     | None     | 主キー、自動増分 |
+| 1 | id        | BIGINT       | YES     | None     | 主キー、自動増分 |
 | 2 | facility_id | INT        | YES     | None     | facilities テーブルへの外部キー |
 | 3 | name      | VARCHAR(100) | YES     | None     |              |
-| 4 | description | TEXT       | NO      | NULL     |              |
-| 5 | limit     | INT          | NO      | NULL     |              |
-| 6 | created_at| TIMESTAMP    | YES     | CURRENT_TIMESTAMP |           |
-| 7 | updated_at| TIMESTAMP    | YES     | CURRENT_TIMESTAMP | 更新時に自動的にタイムスタンプ更新 |
+| 4 | price     | INT          | YES     | None     |              |
+| 5 | description | TEXT       | NO      | NULL     |              |
+| 6 | limit     | INT          | NO      | NULL     |              |
+| 7 | created_at| TIMESTAMP    | YES     | CURRENT_TIMESTAMP |           |
+| 8 | updated_at| TIMESTAMP    | YES     | CURRENT_TIMESTAMP | 更新時に自動的にタイムスタンプ更新 |
 
 **reservations テーブル**
 | No | カラム名     | データ型         | Not NULL | デフォルト値 | 備考           |
 |---|-----------|--------------|---------|----------|--------------|
-| 1 | id        | INT          | YES     | None     | 主キー、自動増分 |
+| 1 | id        | BIGINT       | YES     | None     | 主キー、自動増分 |
 | 2 | user_id   | INT          | YES     | None     | users テーブルへの外部キー |
 | 3 | facility_id | INT        | YES     | None     | facilities テーブルへの外部キー |
 | 4 | service_id | INT         | YES     | None     | services テーブルへの外部キー |
@@ -100,8 +101,8 @@ http://localhost
 **admins テーブル**
 | No | カラム名     | データ型         | Not NULL | デフォルト値 | 備考           |
 |---|-----------|--------------|---------|----------|--------------|
-| 1 | id        | INT          | YES     | None     | 主キー、自動増分 |
-| 2 | facility_id BIGINT       | NO      | None     |              |
+| 1 | id        | BIGINT       | YES     | None     | 主キー、自動増分 |
+| 2 | facility_id | BIGINT       | NO      | None     |              |
 | 3 | name      | VARCHAR(100) | YES     | None     |              |
 | 4 | email     | VARCHAR(100) | YES     | None     |              |
 | 5 | password  | VARCHAR(100) | YES     | None     | 暗号化されたパスワード |
