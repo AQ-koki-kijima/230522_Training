@@ -14,6 +14,8 @@ ENV TZ=UTC \
 
 COPY --from=composer:2.3 /usr/bin/composer /usr/bin/composer
 
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash
+
 RUN apt-get update \
   && apt-get -y install --no-install-recommends \
     locales \
@@ -22,6 +24,7 @@ RUN apt-get update \
     libzip-dev \
     libicu-dev \
     libonig-dev \
+    nodejs \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && locale-gen en_US.UTF-8 \
