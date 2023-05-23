@@ -32,7 +32,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('facility_id')->constrained()->onDelete('cascade');
             $table->string('name', 100);
-            $table->int('price');
+            $table->integer('price');
             $table->text('description')->nullable();
             $table->integer('limit')->nullable();
             $table->timestamps();
