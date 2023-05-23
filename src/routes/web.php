@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FacilitiesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,5 +14,8 @@ use App\Http\Controllers\UsersController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::group(['prefix' => '/facility'], function () {
+    Route::get('/top', [FacilitiesController::class, 'getRecords'])->name('facility.top');
 
-Route::get('/', [UsersController::class, 'getName']);
+    Route::get('/delete/{id}', [FacilitiesController::class, 'deleteRecord'])->name('facility.delete');
+});
