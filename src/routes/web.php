@@ -36,3 +36,5 @@ Route::group(['prefix' => '/admin'], function () {
 });
 Route::get('/', [UsersController::class, 'getName']);
 
+// 公開側
+Route::post('/search', [\App\Http\Controllers\FacilitySearchController::class, 'getSearch']);
