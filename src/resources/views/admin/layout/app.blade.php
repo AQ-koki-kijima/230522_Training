@@ -5,9 +5,9 @@
 </head>
 <body>
 <div style="display: flex;">
-    @include('layout.menu')
+    @include('admin.layout.menu')
     <main>
-        @include('layout.header')
+        @include('admin.layout.header')
         <div>
             @yield('content')
         </div>
