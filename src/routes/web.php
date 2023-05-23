@@ -27,7 +27,7 @@ Route::group(['prefix' => '/admin'], function () {
 
     Route::middleware(['auth'])->group(function () {
         Route::get('/home', [AdminManagementController::class, 'index'])->name('home');
-        
+
         Route::group(['prefix' => '/facility'], function () {
             Route::get('/top', [FacilitiesController::class, 'getRecords'])->name('facility.top');
             Route::get('/delete/{id}', [FacilitiesController::class, 'deleteRecord'])->name('facility.delete');
@@ -37,4 +37,4 @@ Route::group(['prefix' => '/admin'], function () {
 Route::get('/', [UsersController::class, 'getName']);
 
 // 公開側
-Route::post('/search', [\App\Http\Controllers\FacilitySearchController::class, 'getSearch']);
+Route::get('/search', [\App\Http\Controllers\FacilitySearchController::class, 'getSearch']);

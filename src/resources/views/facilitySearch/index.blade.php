@@ -13,7 +13,7 @@
 </head>
 <body class="antialiased">
 施設検索
-{{Form::open(['url' => '/search'])}}
+{{Form::open(['url' => '/search', 'method' => 'GET'])}}
 <div>
     {{ Form::label('keyword', 'フリーワード') }}
     {{ Form::text('keyword', '' , ['class' => 'form-control']) }}
