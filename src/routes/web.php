@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminManagementController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacilitiesController;
 
 /*
@@ -16,6 +18,20 @@ use App\Http\Controllers\FacilitiesController;
 */
 Route::group(['prefix' => '/facility'], function () {
     Route::get('/top', [FacilitiesController::class, 'getRecords'])->name('facility.top');
+
+Route::group(['prefix' => '/'], function () {
+
+});
+Route::group(['prefix' => '/admin'], function () {
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/home', [AdminManagementController::class, 'index'])->name('home');
+    });
+});
+Route::get('/', [UsersController::class, 'getName']);
 
     Route::get('/delete/{id}', [FacilitiesController::class, 'deleteRecord'])->name('facility.delete');
 });
