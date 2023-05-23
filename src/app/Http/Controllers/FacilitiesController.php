@@ -16,7 +16,7 @@ class FacilitiesController extends Controller
     public function getRecords()
     {
         $facilities = $this->facilitiesService->getRecords();
-        return view('facility/top', ['facilities' => $facilities]);
+        return view(('admin.facility.top'), ['facilities' => $facilities]);
     }
 
     public function deleteRecord($id)
