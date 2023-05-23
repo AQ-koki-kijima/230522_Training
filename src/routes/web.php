@@ -23,7 +23,8 @@ Route::group(['prefix' => '/admin'], function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/home', [AdminManagementController::class, 'index'])->name('home')->middleware('auth');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/home', [AdminManagementController::class, 'index'])->name('home');
+    });
 });
-
 Route::get('/', [UsersController::class, 'getName']);

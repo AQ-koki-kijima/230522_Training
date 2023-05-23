@@ -134,3 +134,13 @@ http://localhost
 | 5 | password  | VARCHAR(100) | YES     | None     | 暗号化されたパスワード |
 | 6 | created_at| TIMESTAMP    | YES     | CURRENT_TIMESTAMP |           |
 | 7 | updated_at| TIMESTAMP    | YES     | CURRENT_TIMESTAMP | 更新時に自動的にタイムスタンプ更新 |
+
+**system_admins テーブル**
+| No | カラム名     | データ型         | Not NULL | デフォルト値 | 備考           |
+|---|-----------|--------------|---------|----------|--------------|
+| 1 | id        | BIGINT       | YES     | None     | 主キー、自動増分 |
+| 2 | name      | VARCHAR(100) | YES     | None     |              |
+| 3 | email     | VARCHAR(100) | YES     | None     |              |
+| 4 | password  | VARCHAR(100) | YES     | None     | 暗号化されたパスワード |
+| 5 | created_at| TIMESTAMP    | YES     | CURRENT_TIMESTAMP |           |
+| 6 | updated_at| TIMESTAMP    | YES     | CURRENT_TIMESTAMP | 更新時に自動的にタイムスタンプ更新 |
