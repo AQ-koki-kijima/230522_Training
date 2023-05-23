@@ -1,4 +1,4 @@
-@extends('facility.layout.app')
+@extends('admin.layout.app')
 
 @section('content')
     <head>
