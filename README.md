@@ -22,6 +22,32 @@ $ make init
 
 http://localhost
 
+## おやくそく
+### 1. 命名規則
+* htmlはキャメルケースに従ってください。(getCurryRice)
+* phpはPSRに準拠(https://www.infiniteloop.co.jp/docs/psr/psr-2-coding-style-guide.php)
+
+### 2. MVC+Sにしたがって
+コーディングの際、以下にしたがってください。
+* Model：データベースからテーブルを取得するのみ(ex. DB::table($this->table))
+* Service：ビジネスロジックはすべてここで記述（削除も含む）
+* Controller：データに関する指示の橋渡しのみ。<br>
+一つの機能につき、一つのコントローラが対応します。<br>
+一つのコントローラが複数メソッドを持てます。
+
+
+### 3. プルリク単位
+基本的には、CRUDそれぞれで行ってください。
+
+### 4. ブランチの命名規則
+* ケバブケースで行います。
+* 名前/機能名-C/R/U/D<br>
+(ex)kijima/facility-create
+
+### 5. bladeファイルの格納方法について
+* template, 機能ごとに、フォルダ分けしてください。<br>
+例：templateはtemplateフォルダに、facility関係はfacilityフォルダに。
+
 ## Container structures
 
 ```bash
